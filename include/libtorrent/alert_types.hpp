@@ -54,6 +54,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "libtorrent/stack_allocator.hpp"
 #include "libtorrent/aux_/noexcept_movable.hpp"
 #include "libtorrent/portmap.hpp" // for portmap_transport
+#include "libtorrent/aux_/deprecated.hpp"
 
 #include "libtorrent/aux_/disable_warnings_push.hpp"
 #include <boost/shared_array.hpp>

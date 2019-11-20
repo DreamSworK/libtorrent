@@ -55,6 +55,10 @@ namespace libtorrent {
 	// information about a file in a file_storage
 	struct TORRENT_DEPRECATED_EXPORT file_entry
 	{
+#if defined __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
 		// hidden
 		file_entry();
 		// hidden
@@ -63,6 +67,10 @@ namespace libtorrent {
 		file_entry& operator=(file_entry const&) & = default;
 		file_entry(file_entry&&) noexcept = default;
 		file_entry& operator=(file_entry&&) & noexcept = default;
+
+#if defined __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 		// the full path of this file. The paths are unicode strings
 		// encoded in UTF-8.
@@ -353,12 +361,20 @@ namespace libtorrent {
 		TORRENT_DEPRECATED
 		file_entry at(int index) const;
 
+#if defined __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
 		iterator begin_deprecated() const { return m_files.begin(); }
 		iterator end_deprecated() const { return m_files.end(); }
 		reverse_iterator rbegin_deprecated() const { return m_files.rbegin(); }
 		reverse_iterator rend_deprecated() const { return m_files.rend(); }
 		iterator file_at_offset_deprecated(std::int64_t offset) const;
 		file_entry at_deprecated(int index) const;
+
+#if defined __GNUC__
+#pragma GCC diagnostic pop
+#endif
 #endif // TORRENT_ABI_VERSION
 
 		// returns the number of files in the file_storage
